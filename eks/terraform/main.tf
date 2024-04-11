@@ -139,11 +139,12 @@ locals {
         "zeet.co/dedicated" = "system"
       }
     }
-    "c5-4xlarge-dedi" : {
-      instance_types = ["c5.4xlarge"]
+    "c6a-xlarge-parser" : {
+      instance_types = ["c6a.xlarge"]
 
       labels = {
-        "zeet.co/dedicated" = "dedicated"
+        "zeet.co/dedicated" = "dedicated",
+        "bytebeam.io/instanceKind" = "parser"
       }
 
       taints = [
@@ -154,11 +155,12 @@ locals {
         }
       ]
     }
-    "c5-2xlarge-dedi" : {
-      instance_types = ["c5.2xlarge"]
+    "c6a-xlarge-daemon" : {
+      instance_types = ["c6a.xlarge"]
 
       labels = {
-        "zeet.co/dedicated" = "dedicated"
+        "zeet.co/dedicated" = "dedicated",
+        "bytebeam.io/instanceKind" = "daemon"
       }
 
       taints = [
@@ -169,11 +171,12 @@ locals {
         }
       ]
     }
-    "c5-xlarge-dedi" : {
-      instance_types = ["c5.xlarge"]
+    "m6a-xlarge-clickhouse-4-16" : {
+      instance_types = ["m6a.xlarge"]
 
       labels = {
-        "zeet.co/dedicated" = "dedicated"
+        "zeet.co/dedicated" = "dedicated",
+        "bytebeam.io/instanceKind" = "clickhouse16"
       }
 
       taints = [
@@ -184,11 +187,12 @@ locals {
         }
       ]
     }
-    "m5-large-dedi" : {
-      instance_types = ["m5.large"]
+    "m6a.2xlarge-clickhouse-8-32" : {
+      instance_types = ["m6a.2xlarge"]
 
       labels = {
-        "zeet.co/dedicated" = "dedicated"
+        "zeet.co/dedicated" = "dedicated",
+        "bytebeam.io/instanceKind" = "clickhouse32"
       }
 
       taints = [
@@ -199,88 +203,7 @@ locals {
         }
       ]
     }
-    "c5-xlarge-guran" : {
-      instance_types = ["c5.xlarge"]
-      capacity_type  = "SPOT"
-
-      labels = {
-        "zeet.co/dedicated" = "guaranteed"
-      }
-
-      taints = [
-        {
-          key    = "zeet.co/dedicated"
-          value  = "guaranteed"
-          effect = "NO_SCHEDULE"
-        }
-      ]
-    }
-    "m5-large-shared" : {
-      instance_types = ["m5.large"]
-      capacity_type  = "SPOT"
-
-      labels = {
-        "zeet.co/dedicated" = "shared"
-      }
-
-      taints = [
-        {
-          key    = "zeet.co/dedicated"
-          value  = "shared"
-          effect = "NO_SCHEDULE"
-        }
-      ]
-    }
-    "m5-large-dedi-private" : {
-      instance_types      = ["m5.large"]
-      autoscaling_enabled = var.enable_nat
-
-      subnet_ids = [sort(module.vpc.private_subnets)[0]]
-
-      labels = {
-        "zeet.co/dedicated" = "dedicated"
-        "zeet.co/static-ip" = "true"
-      }
-
-      taints = [
-        {
-          key    = "zeet.co/dedicated"
-          value  = "dedicated"
-          effect = "NO_SCHEDULE"
-        },
-        {
-          key    = "zeet.co/static-ip"
-          value  = "true"
-          effect = "NO_SCHEDULE"
-        }
-      ]
-    }
-    "c5-xlarge-guran-priv" : {
-      instance_types      = ["c5.xlarge"]
-      capacity_type       = "SPOT"
-      autoscaling_enabled = var.enable_nat
-
-      subnet_ids = [sort(module.vpc.private_subnets)[0]]
-
-      labels = {
-        "zeet.co/dedicated" = "guaranteed"
-        "zeet.co/static-ip" = "true"
-      }
-
-      taints = [
-        {
-          key    = "zeet.co/dedicated"
-          value  = "guaranteed"
-          effect = "NO_SCHEDULE"
-        },
-
-        {
-          key    = "zeet.co/static-ip"
-          value  = "true"
-          effect = "NO_SCHEDULE"
-        }
-      ]
-    }
+    
     } : k => merge({
       name                = k
       key_name            = aws_key_pair.ssh.key_name

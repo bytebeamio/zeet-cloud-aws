@@ -171,7 +171,7 @@ locals {
         }
       ]
     }
-    "m6a-xlarge-clickhouse-4-16" : {
+    "m6a-xlrg-clickhouse416" : {
       instance_types = ["m6a.xlarge"]
 
       labels = {
@@ -187,7 +187,7 @@ locals {
         }
       ]
     }
-    "m6a.2xlarge-clickhouse-8-32" : {
+    "m6a.2xlrg-clickhouse832" : {
       instance_types = ["m6a.2xlarge"]
 
       labels = {

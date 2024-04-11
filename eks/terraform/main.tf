@@ -139,7 +139,7 @@ locals {
         "zeet.co/dedicated" = "system"
       }
     }
-    "c6a-xlarge-parser" : {
+    "c6a-xl-parser" : {
       instance_types = ["c6a.xlarge"]
 
       labels = {
@@ -155,7 +155,7 @@ locals {
         }
       ]
     }
-    "c6a-xlarge-daemon" : {
+    "c6a-xl-daemon" : {
       instance_types = ["c6a.xlarge"]
 
       labels = {
@@ -171,7 +171,7 @@ locals {
         }
       ]
     }
-    "m6a-xlrg-clickhouse416" : {
+    "m6a-xl-clickhouse-416" : {
       instance_types = ["m6a.xlarge"]
 
       labels = {
@@ -187,7 +187,7 @@ locals {
         }
       ]
     }
-    "m6a.2xlrg-clickhouse832" : {
+    "m6a-2xl-clickhouse-832" : {
       instance_types = ["m6a.2xlarge"]
 
       labels = {

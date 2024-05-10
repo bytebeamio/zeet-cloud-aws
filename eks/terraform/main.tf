@@ -160,7 +160,23 @@ locals {
 
       labels = {
         "zeet.co/dedicated" = "dedicated",
-        "bytebeam.io/instanceKind" = "daemon"
+        "bytebeam.io/instanceKind" = "daemon4"
+      }
+
+      taints = [
+        {
+          key    = "zeet.co/dedicated"
+          value  = "dedicated"
+          effect = "NO_SCHEDULE"
+        }
+      ]
+    }
+    "c6a-2xl-daemon" : {
+      instance_types = ["c6a.xlarge"]
+
+      labels = {
+        "zeet.co/dedicated" = "dedicated",
+        "bytebeam.io/instanceKind" = "daemon8"
       }
 
       taints = [

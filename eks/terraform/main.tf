@@ -233,7 +233,7 @@ locals {
           device_name = "/dev/xvda"
           ebs = {
             volume_size           = 50
-            volume_type           = "gp2"
+            volume_type           = "gp3"
             delete_on_termination = true
           }
         }

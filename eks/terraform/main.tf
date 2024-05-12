@@ -146,14 +146,6 @@ locals {
         "zeet.co/dedicated" = "dedicated",
         "bytebeam.io/instanceKind" = "parser"
       }
-
-      taints = [
-        {
-          key    = "zeet.co/dedicated"
-          value  = "dedicated"
-          effect = "NO_SCHEDULE"
-        }
-      ]
     }
     "c6a-xl-daemon" : {
       instance_types = ["c6a.xlarge"]
@@ -162,14 +154,6 @@ locals {
         "zeet.co/dedicated" = "dedicated",
         "bytebeam.io/instanceKind" = "daemon4"
       }
-
-      taints = [
-        {
-          key    = "zeet.co/dedicated"
-          value  = "dedicated"
-          effect = "NO_SCHEDULE"
-        }
-      ]
     }
     "c6a-2xl-daemon" : {
       instance_types = ["c6a.xlarge"]
@@ -178,14 +162,6 @@ locals {
         "zeet.co/dedicated" = "dedicated",
         "bytebeam.io/instanceKind" = "daemon8"
       }
-
-      taints = [
-        {
-          key    = "zeet.co/dedicated"
-          value  = "dedicated"
-          effect = "NO_SCHEDULE"
-        }
-      ]
     }
     "m6a-xl-clickhouse-416" : {
       instance_types = ["m6a.xlarge"]
@@ -194,14 +170,6 @@ locals {
         "zeet.co/dedicated" = "dedicated",
         "bytebeam.io/instanceKind" = "clickhouse16"
       }
-
-      taints = [
-        {
-          key    = "zeet.co/dedicated"
-          value  = "dedicated"
-          effect = "NO_SCHEDULE"
-        }
-      ]
     }
     "m6a-2xl-clickhouse-832" : {
       instance_types = ["m6a.2xlarge"]
@@ -210,14 +178,6 @@ locals {
         "zeet.co/dedicated" = "dedicated",
         "bytebeam.io/instanceKind" = "clickhouse32"
       }
-
-      taints = [
-        {
-          key    = "zeet.co/dedicated"
-          value  = "dedicated"
-          effect = "NO_SCHEDULE"
-        }
-      ]
     }
     
     } : k => merge({

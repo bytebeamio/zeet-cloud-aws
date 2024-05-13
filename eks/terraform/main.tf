@@ -171,7 +171,7 @@ locals {
         "bytebeam.io/instanceKind" = "daemon8"
       }
     }
-    "bytebeam-clickhouse-xl" : {
+    "bytebeam-clkhouse-xl" : {
       instance_types = ["m6a.xlarge"]
 
       labels = {
@@ -179,7 +179,7 @@ locals {
         "bytebeam.io/instanceKind" = "clickhouse16"
       }
     }
-    "bytebeam-clickhouse-2xl" : {
+    "bytebeam-clkhouse-2xl" : {
       instance_types = ["m6a.2xlarge"]
 
       labels = {
@@ -187,7 +187,7 @@ locals {
         "bytebeam.io/instanceKind" = "clickhouse32"
       }
     }
-    "bytebeam-clickhouse-4xl" : {
+    "bytebeam-clkhouse-4xl" : {
       instance_types = ["m6a.4xlarge"]
 
       labels = {

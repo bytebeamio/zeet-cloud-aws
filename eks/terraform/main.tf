@@ -131,7 +131,7 @@ resource "aws_key_pair" "ssh" {
 
 locals {
   worker_templates_cpu = { for k, v in {
-    "m5-large-system" : {
+    "bytebeam-k8s-system" : {
       instance_types = ["m5.large"]
       desired_size   = 1
 
@@ -139,15 +139,23 @@ locals {
         "zeet.co/dedicated" = "system"
       }
     }
-    "c6a-xl-parser" : {
+    "bytebeam-parser-xl" : {
       instance_types = ["c6a.xlarge"]
 
       labels = {
         "zeet.co/dedicated" = "dedicated",
-        "bytebeam.io/instanceKind" = "parser"
+        "bytebeam.io/instanceKind" = "parser4"
       }
     }
-    "c6a-xl-daemon" : {
+    "bytebeam-parser-2xl" : {
+      instance_types = ["c6a.2xlarge"]
+
+      labels = {
+        "zeet.co/dedicated" = "dedicated",
+        "bytebeam.io/instanceKind" = "parser8"
+      }
+    }
+    "bytebeam-daemon-xl" : {
       instance_types = ["c6a.xlarge"]
 
       labels = {
@@ -155,15 +163,15 @@ locals {
         "bytebeam.io/instanceKind" = "daemon4"
       }
     }
-    "c6a-2xl-daemon" : {
-      instance_types = ["c6a.xlarge"]
+    "bytebeam-daemon-2xl" : {
+      instance_types = ["c6a.2xlarge"]
 
       labels = {
         "zeet.co/dedicated" = "dedicated",
         "bytebeam.io/instanceKind" = "daemon8"
       }
     }
-    "m6a-xl-clickhouse-416" : {
+    "bytebeam-clickhouse-xl" : {
       instance_types = ["m6a.xlarge"]
 
       labels = {
@@ -171,12 +179,20 @@ locals {
         "bytebeam.io/instanceKind" = "clickhouse16"
       }
     }
-    "m6a-2xl-clickhouse-832" : {
+    "bytebeam-clickhouse-2xl" : {
       instance_types = ["m6a.2xlarge"]
 
       labels = {
         "zeet.co/dedicated" = "dedicated",
         "bytebeam.io/instanceKind" = "clickhouse32"
+      }
+    }
+    "bytebeam-clickhouse-4xl" : {
+      instance_types = ["m6a.4xlarge"]
+
+      labels = {
+        "zeet.co/dedicated" = "dedicated",
+        "bytebeam.io/instanceKind" = "clickhouse64"
       }
     }
     
